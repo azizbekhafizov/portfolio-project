@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #070d1f;
+  --bg-low:       #0c1326;
+  --bg-container: #11192e;
+  --bg-high:      #171f36;
+  --bg-highest:   #1c253e;
+  --bg-lowest:    #000000;
+  --primary:      #8ff5ff;
+  --primary-dim:  #00deec;
+  --secondary:    #d575ff;
+  --tertiary:     #65afff;
+  --on-surface:   #dfe4fe;
+  --on-muted:     #a5aac2;
+  --outline:      #41475b;
+  --on-primary-fixed: #003f43;
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* X scroll muammosini html darajasida ham to'sish */
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 99px; }
+
+/* Selection */
+::selection { background: rgba(143,245,255,.2); color: var(--primary); }
+
+/* Cursor */
+.cursor-dot {
+  position: fixed; pointer-events: none; z-index: 99999;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--primary);
+  transform: translate(-50%,-50%);
+}
+.cursor-ring {
+  position: fixed; pointer-events: none; z-index: 99998;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1.5px solid rgba(143,245,255,.4);
+  transform: translate(-50%,-50%);
+  transition: width .12s, height .12s;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-14px); }
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+@keyframes pulse-dot {
+  0%,100% { box-shadow: 0 0 0 0 rgba(143,245,255,.5); }
+  50%     { box-shadow: 0 0 0 8px rgba(143,245,255,0); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes particle-float {
+  0%   { transform: translate(0,0); opacity: .5; }
+  33%  { transform: translate(18px,-22px); opacity: .8; }
+  66%  { transform: translate(-14px,10px); opacity: .4; }
+  100% { transform: translate(0,0); opacity: .5; }
+}
+@keyframes scanline {
+  0%   { left: -40%; }
+  100% { left: 120%; }
+}
+@keyframes barFill {
+  from { width: 0; }
+  to   { width: var(--w); }
+}
+
+/* Utility classes */
+.section       { padding: 112px 0; }
+.container     { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.section-tag   {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--primary); font-family: var(--font-head);
+}
+.section-tag::before { content:''; width: 22px; height: 1px; background: var(--primary); }
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-card {
+  background: rgba(12,19,38,.7);
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: 12px;
+  backdrop-filter: blur(14px);
+  transition: border-color .3s, transform .3s, box-shadow .3s;
+}
+.glass-card:hover {
+  border-color: rgba(143,245,255,.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(143,245,255,.06);
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px;
+  background: var(--primary); color: var(--on-primary-fixed);
+  font-family: var(--font-head); font-weight: 700; font-size: 14px;
+  text-decoration: none; border: none; border-radius: 99px;
+  cursor: none; transition: transform .2s, opacity .2s;
+  box-shadow: 0 0 20px rgba(143,245,255,.28);
+}
+.btn-primary:hover { transform: scale(1.05); opacity: .92; }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 28px;
+  background: transparent; color: var(--on-surface);
+  font-family: var(--font-head); font-weight: 600; font-size: 14px;
+  text-decoration: none; border: 1px solid rgba(255,255,255,.1);
+  border-radius: 99px; cursor: none;
+  transition: all .2s;
+}
+.btn-outline:hover { background: rgba(255,255,255,.05); border-color: rgba(143,245,255,.3); transform: scale(1.04); }
+
+.mat-icon {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal; font-size: 20px; line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Skill bar */
+.skill-bar-fill {
+  height: 1px; border-radius: 99px; width: 0;
+  transition: width 1.2s cubic-bezier(.25,1,.5,1);
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero grid bg */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(143,245,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143,245,255,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Nav active link */
+.nav-link.active {
+  color: var(--primary);
+  border-bottom: 1.5px solid var(--primary);
+  padding-bottom: 2px;
+}
+
+/* Project card overlay */
+.proj-overlay {
+  position: absolute; inset: 0;
+  background: rgba(7,13,31,.85);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  opacity: 0; transition: opacity .3s;
+  border-radius: 12px 12px 0 0;
+  z-index: 2; /* ← shu qatorni qo'shing */
+}
+.proj-card:hover .proj-overlay { opacity: 1; }
+.proj-card:hover .proj-img { transform: scale(1.07); }
+
+/* Timeline */
+.tl-line {
+  background: linear-gradient(to bottom, var(--primary), var(--secondary), transparent);
+  opacity: .25;
+}
+
+/* Filter tab */
+.filter-tab { transition: all .2s; color: var(--on-muted); }
+.filter-tab.active {
+  background: var(--primary); color: var(--on-primary-fixed); font-weight: 700;
+}
+.filter-tab:not(.active):hover { color: var(--on-surface); }
+
+/* ─── NAVBAR ──────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  transition: padding .3s, background .3s;
+}
+
+/* ─── MOBILE MENU OVERLAY ─────────────────────────────────── */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s ease, visibility .35s ease;
+}
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ─── MOBILE MENU SIDEBAR ─────────────────────────────────── */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* 100dvh — iOS Safari address bar ni hisobga oladi */
+  height: 100dvh;
+  width: min(230px, 85vw);
+  background: #070d1f;
+  border-left: 1px solid rgba(143, 245, 255, 0.08);
+  z-index: 9999;
+  transform: translateX(100%);
+  transition: transform .35s cubic-bezier(.77, 0, .18, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 70px 16px 32px;
+  /* scroll faqat sidebar ichida, tashqarida emas */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+.mobile-menu a {
+  color: var(--on-muted);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 13px 16px;
+  border-radius: 10px;
+  transition: color .2s, background .2s;
+  white-space: nowrap;
+}
+.mobile-menu a:hover,
+.mobile-menu a:active {
+  color: var(--primary);
+  background: rgba(143, 245, 255, 0.06);
+}
+
+/* Desktop da overlay va mobile menu ko'rinmasin */
+@media (min-width: 769px) {
+  .menu-overlay,
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 72px 0; }
+  .btn-primary, .btn-outline { cursor: auto; }
+}
