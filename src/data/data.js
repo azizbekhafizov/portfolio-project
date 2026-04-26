@@ -1,9 +1,13 @@
+
 // ─── PERSONAL ────────────────────────────────────────────────────────────────
+
+// import rasm1 from '../assets/images/rasm1.png'
+
 import photo from '../assets/images/Azizbek3.png'
 export const personal = {
   name:     'Azizbek Hafizov',
   initials: 'AH',
-  photo:    photo,
+  photo:    'src/assets/images/Azizbek3.png',
   cv:       'public/Azizbek-resume.pdf',
   email:    'azizbekhafizov678@gmail.com',
   phone:    '+998 97 917 14 11',
@@ -98,10 +102,11 @@ export const techChips = [
 ]
 
 // ─── PROJECTS ─────────────────────────────────────────────────────────────────
+
 export const projects = [
   {
     id: 1,
-    image: 'src/assets/images/bellissimo.png',
+    image: bellissimoImg,
     name: 'Bellissimo',
     cat: 'react',
     gradient: 'linear-gradient(135deg, #c62a47 0%, #6a1b9a 100%)',
