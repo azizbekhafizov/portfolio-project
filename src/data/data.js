@@ -2,7 +2,8 @@
 // ─── PERSONAL ────────────────────────────────────────────────────────────────
 
 
-import photo from '../assets/images/Azizbek3.png'
+
+
 export const personal = {
   name:     'Azizbek Hafizov',
   initials: 'AH',
