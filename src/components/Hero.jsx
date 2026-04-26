@@ -244,4 +244,4 @@ export default function Hero() {
       <style>{`@media(max-width:768px){.hide-mobile{display:none!important}}`}</style>
     </section>
   )
-}
+} 
