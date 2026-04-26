@@ -1,7 +1,6 @@
 
 // ─── PERSONAL ────────────────────────────────────────────────────────────────
 
-// import rasm1 from '../assets/images/rasm1.png'
 
 import photo from '../assets/images/Azizbek3.png'
 export const personal = {
@@ -106,7 +105,7 @@ export const techChips = [
 export const projects = [
   {
     id: 1,
-    image: bellissimoImg,
+    image: 'public/projects/bellissimo.png',
     name: 'Bellissimo',
     cat: 'react',
     gradient: 'linear-gradient(135deg, #c62a47 0%, #6a1b9a 100%)',
@@ -121,7 +120,7 @@ export const projects = [
   },
   {
     id: 2,
-    image: 'src/assets/images/store.png',
+    image: 'public/projects/store.png',
     name: 'Phone Store',
     cat: 'react',
     gradient: 'linear-gradient(135deg, #0d1b4b 0%, #1a3a6b 50%, #0d47a1 100%)',
@@ -136,7 +135,7 @@ export const projects = [
   },
   {
     id: 3,
-    image: 'src/assets/images/upg.png',
+    image: 'public/projects/upg.png',
     name: 'UPG Project',
     cat: 'react',
     gradient: 'linear-gradient(135deg, #01579b 0%, #0277bd 100%)',
@@ -151,7 +150,7 @@ export const projects = [
   },
   {
     id: 4,
-    image: 'src/assets/images/pizza-ecommerce.png',
+    image: 'public/projects/pizza-ecommerce.png',
     name: 'Pizza E-commerce',
     cat: 'react',
     gradient: 'linear-gradient(135deg, #b71c1c 0%, #e53935 100%)',
@@ -166,7 +165,7 @@ export const projects = [
   },
   {
     id: 5,
-    image: 'src/assets/images/e-commerce-ui.png',
+    image: 'public/projects/e-commerce-ui.png',
     name: 'E-commerce UI',
     cat: 'react',
     gradient: 'linear-gradient(135deg, #1b5e20 0%, #388e3c 100%)',
@@ -181,7 +180,7 @@ export const projects = [
   },
   {
     id: 6,
-    image: 'src/assets/images/edu-platform.png',
+    image: 'public/projects/edu-platform.png',
     name: 'Edu Platform',
     cat: 'react',
     gradient: 'linear-gradient(135deg, #4a148c 0%, #7b1fa2 100%)',
@@ -196,7 +195,7 @@ export const projects = [
   },
   {
     id: 7,
-    image: 'src/assets/images/fast-food.png',
+    image: 'public/projects/fast-food.png',
     name: 'Fast Food',
     cat: 'react',
     gradient: 'linear-gradient(135deg, #e65100 0%, #ff8f00 100%)',
@@ -211,7 +210,7 @@ export const projects = [
   },
   {
     id: 8,
-    image: 'src/assets/images/dom-matrasov.png',
+    image: 'public/projects/dom-matrasov.png',
     name: 'Dom Matrasov',
     cat: 'clone',
     gradient: 'linear-gradient(135deg, #1a237e 0%, #283593 100%)',
