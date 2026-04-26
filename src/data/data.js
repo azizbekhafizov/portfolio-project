@@ -3,11 +3,11 @@
 
 
 
-
+import photos from '../assets/images/Azizbek3.png'
 export const personal = {
   name:     'Azizbek Hafizov',
   initials: 'AH',
-  photo:    'src/assets/images/Azizbek3.png',
+  photo:    photos,
   cv:       'public/Azizbek-resume.pdf',
   email:    'azizbekhafizov678@gmail.com',
   phone:    '+998 97 917 14 11',
